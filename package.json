@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/chriscoomber/manydice-js/issues"
   },
-  "homepage": "https://github.com/chriscoomber/manydice-js#readme",
+  "homepage": "https://chriscoomber.github.io/manydice-js/",
   "workspaces": [
     "website"
   ],

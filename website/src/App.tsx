@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { FOO } from "many-dice";
+import JSEditor from "./JSEditor";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>Foo is {FOO}</p>
+        <JSEditor />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
