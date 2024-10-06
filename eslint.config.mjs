@@ -3,9 +3,11 @@ import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
 // @ts-expect-error no types for library exist
 import jest from "eslint-plugin-jest";
+import docusaurus from "@docusaurus/eslint-plugin";
 import { includeIgnoreFile } from "@eslint/compat";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import globals from "globals";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -21,6 +23,7 @@ export default tseslint.config(
     plugins: {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       jest: jest,
+      docusaurus: docusaurus,
     },
   },
   {
@@ -30,6 +33,16 @@ export default tseslint.config(
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+  {
+    rules: {
+      "@typescript-eslint/restrict-template-expressions": "off",
+      "@typescript-eslint/consistent-type-definitions": ["off", "type"],
+      "@typescript-eslint/no-require-imports": "off",
     },
   },
 );
