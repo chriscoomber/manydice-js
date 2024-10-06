@@ -6,6 +6,7 @@ import jest from "eslint-plugin-jest";
 import { includeIgnoreFile } from "@eslint/compat";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import globals from "globals";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,8 +29,18 @@ export default tseslint.config(
       parserOptions: {
         project: true,
         projectService: true,
-        tsconfigRootDir: import.meta.dirname,
+        tsconfigRootDir: __dirname,
       },
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+  {
+    rules: {
+      "@typescript-eslint/restrict-template-expressions": "off",
+      "@typescript-eslint/consistent-type-definitions": ["off", "type"],
+      "@typescript-eslint/no-require-imports": "off",
     },
   },
 );
